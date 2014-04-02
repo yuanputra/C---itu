@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+
+
+void main()
+{
+int i=0,nilai;
+
+int bilangan[5];
+
+for (i=0; i<5; i++)
+{
+	cout<<"masukan angka ke "<<i+1<<" : ";
+	cin>>bilangan[i];
+	cout<<endl<<endl;
+
+}
+cout <<"---------------------------------------"<<endl;
+cout<<"masukin nilai yang mau di cari"<<;
+cin >>nilai;
+cout <<"---------------------------------------"<<endl;
+for (i=0;i<5;i++)
+{
+	if (bilangan[i] == nilai)
+		{
+		ke=i;
+		cout <<i++<<endl;
+		}
+	else
+		ke=0;
+}
+
+system ("pause");
+	
+
+}
