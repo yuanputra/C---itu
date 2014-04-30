@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+
+
+	struct koordinat
+	{
+		int x,y;
+	};
+	koordinat ubah_posisi(koordinat posisi);
+	void main()
+	{
+		koordinat posisi;
+		posisi.x=12;
+		posisi.y=34;
+		cout<<"isi semula : x = "<<posisi.x
+			<<" y ="<<posisi.y<<endl;
+		posisi=ubah_posisi(posisi);
+	}
+	koordinat ubah_posisi(koordinat posisi)
+	{
+		cin>>posisi.x;
+		cin>>posisi.y;
+		cout<<"isi ubah : x = "<<posisi.x
+			<<" y ="<<posisi.y<<endl;
+		return posisi;
+	}
+
+
