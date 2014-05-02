@@ -1,0 +1,157 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct apa{
+	string bulan,bulan2;
+	int hari,tahun,pilih,harbulan,tambul;
+}terserah;
+
+void namabulan(); //prototype
+void inputan()
+{	cout<<"tanggal = ";cin>>terserah.hari;
+	cout<<"bulan = ";cin>>terserah.bulan;
+	cout<<"tahun = ";cin>>terserah.tahun;
+	cout<<"-------------------------------"<<endl;
+
+}
+
+void checkbulan()
+	{   cout<<"masukan bulan ulang = ";cin>>terserah.bulan;
+		system("cls");
+		namabulan();
+
+	}
+
+void namabulan()
+	{       
+		
+		if ((terserah.tambul==0)||(terserah.bulan=="januari"))
+			{	terserah.bulan2="januari";
+				terserah.tambul=0;
+				terserah.harbulan=31;
+			}
+		else if ((terserah.tambul==1)||(terserah.bulan=="februari"))
+			{	terserah.bulan2="februari";
+				terserah.tambul=1;
+				terserah.harbulan=28;
+			}
+		else if ((terserah.tambul==2)||(terserah.bulan=="maret"))
+			{	terserah.bulan2="maret";
+				terserah.tambul=2;
+				terserah.harbulan=31;
+			}
+		else if ((terserah.tambul==3)||(terserah.bulan=="april"))
+			{	terserah.bulan2="april";
+				terserah.tambul=3;
+				terserah.harbulan=30;
+			}
+		else if ((terserah.tambul==4)||(terserah.bulan=="mei"))
+			{	terserah.bulan2="mei";
+				terserah.tambul=4;
+				terserah.harbulan=31;
+			}
+		else if ((terserah.tambul==5)||(terserah.bulan=="juni"))
+			{	terserah.bulan2="juni";
+				terserah.tambul=5;
+				terserah.harbulan=30;
+			}
+		else if ((terserah.tambul==6)||(terserah.bulan=="juli"))
+			{	terserah.bulan2="juli";
+				terserah.tambul=6;
+				terserah.harbulan=31;
+			}
+		else if ((terserah.tambul==7)||(terserah.bulan=="agustus"))
+			{	terserah.bulan2="agustus";
+				terserah.tambul=7;
+				terserah.harbulan=31;
+			}
+		else if ((terserah.tambul==8)||(terserah.bulan=="september"))
+			{	terserah.bulan2="september";
+				terserah.tambul=8;
+				terserah.harbulan=30;
+			}
+		else if ((terserah.tambul==9)||(terserah.bulan=="oktober"))
+			{	terserah.bulan2="oktober";
+				terserah.tambul=9;
+				terserah.harbulan=31;
+			}
+		else if ((terserah.tambul==10)||(terserah.bulan=="november"))
+			{	terserah.bulan2="november";
+				terserah.tambul=10;
+				terserah.harbulan=30;
+			}
+		else if ((terserah.tambul==11)||(terserah.bulan=="desember"))
+			{	terserah.bulan2="desember";
+				terserah.tambul=11;
+				terserah.harbulan=31;
+			}
+		else 
+			checkbulan();
+	}
+void kabisat()
+{	terserah.tambul=99;
+	namabulan();
+	if(terserah.tahun%4==0)
+	{
+		if(terserah.bulan=="februari")
+			terserah.harbulan=29;
+	}
+	
+}
+void checkhari()
+	{ 
+		kabisat();
+		while (terserah.hari>terserah.harbulan)
+		{
+			cout<<"masukan tanggal ulang =";cin>>terserah.hari;
+			system("cls");
+		}
+		terserah.bulan="a";
+}
+void lookesok()
+{	
+	if (terserah.bulan2=="desember")
+		if (terserah.hari == terserah.harbulan)
+			{	terserah.tambul=0;
+				terserah.tahun++;
+				terserah.hari=1;
+			}
+		else
+			terserah.hari++;
+	else if (terserah.hari==terserah.harbulan)
+		{	
+			terserah.tambul++;
+			terserah.hari=1;
+		}
+	else if (terserah.hari<terserah.harbulan)
+			terserah.hari++;
+}
+void menu2()
+{
+	cout<<"1. lihat tanggal besok"<<endl
+		<<"2. keluar"<<endl;
+		cout<<"-------------------------------------------"<<endl;
+		cout<<"masukan pilihan = ";cin>>terserah.pilih;
+		system("cls");
+		if (terserah.pilih==1)
+			{
+			lookesok();
+			namabulan();
+			cout<<"tanggal besok adalah = "<<terserah.hari<<" / "<<terserah.bulan2<<" / "<<terserah.tahun<<endl;
+			system("pause");}
+}
+void main()
+	{
+		cout<<"1. masukan tanggal sekarang"<<endl;
+		cout<<"2. keluar"<<endl<<
+		"---------------------------------------------------"<<endl;
+		cout<<"masukan pilihan = ";cin>>terserah.pilih;
+		system("cls");
+		if (terserah.pilih==1)
+		{	inputan();
+			checkhari();
+			system("cls");
+			menu2();
+		}
+}
