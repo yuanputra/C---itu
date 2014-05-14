@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+void main()
+{
+
+	int i,j;
+	int jumlah[10]={0};
+	int k[10]={0};
+	int nilai[10];
+
+	for(int i=0; i<10; i++)
+	{
+		cin>>nilai[i];
+		while(nilai[i]<=0)
+			{
+			cout<<"masukin kembali aja = "<<endl;
+			cin>>nilai[i];
+			system("cls");
+			}
+	}
+
+	for (i=0;i<10;i++)
+		{ 
+		k[i]=nilai[i];
+			for(j=0;j<10;j++)
+			{
+				
+				if (k[i]==nilai[j])
+					{	
+						nilai[j]=0;
+						jumlah[i]++;
+					}
+											
+			}
+		}
+	cout<<"nilai"<<"          "<<"jumlah"<<endl;
+	cout<<"------------------------------------"<<endl;
+	for (i=0;i<10;i++)
+			cout<<k[i]<<"             "<<jumlah[i]<<endl;
